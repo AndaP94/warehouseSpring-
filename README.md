@@ -8,4 +8,8 @@ This is a little Spring aplication with CRUD functions + h2 Database.
 - [x] Show All
 - [ ] Update TODO 
 
+View:
+
+![alt-text](img/littleWarehouse.PNG)
+
 
