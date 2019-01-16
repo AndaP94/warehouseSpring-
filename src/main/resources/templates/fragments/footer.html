@@ -5,13 +5,13 @@
 </head>
 <body>
 <!--/*  Multiple fragments may be defined in one file */-->
-<div th:fragment="footer" th:align="center">
+<div th:fragment="footer" th:align="center" style="align-content: center; width: 100%; bottom: 0 !important; background: #7f847f; position: absolute; height: 60px">
     &copy; <span th:text="${#temporals.format(#temporals.createNow(), 'yyyy')}">2019</span>
-    <span>My Awesome App</span>
+    <span>The little Warehouse</span>
 </div>
 <div th:fragment="footer-admin" th:align="center">
     &copy; <span th:text="${#temporals.format(#temporals.createNow(), 'yyyy')}">2019</span>
-    <span>My Awesome App </span><span th:text="${@environment.getProperty('app.version')}"></span>
+    <span>The little Warehouse </span><span th:text="${@environment.getProperty('app.version')}"></span>
 </div>
 </body>
 </html>
