@@ -7,9 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IArticleRepository extends CrudRepository<Article, Long> {
 
-   // Article findArticleByName(String name);
-    //void deleteByName(String name);
-
-
+   Article findArticleByArticleName(String name);
 
 }

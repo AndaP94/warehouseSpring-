@@ -20,33 +20,38 @@
 <br>
 <br>
 <div class="container">
-    <h1>Artikel hinzufügen</h1>
+    <h1>Artikel bearbeiten</h1>
     <br>
     <br>
-    <form action="#" th:action="@{/add-article}" th:object="${article}" method="post">
+    <form action="" th:action="@{/updateAndSave}" th:object="${article}" method="post">
         <div class="form-group">
+            <input type="number" th:field="*{articleId}" hidden th:value="${article.get().getArticleId()}" required>
             <label for="name">Artikel Name</label>
-            <input class="form-control" type="text" th:field="*{articleName}" th:maxlength="${30}" required id="name" placeholder="Artikel Name..">
+            <input class="form-control" type="text" th:field="*{articleName}" th:value="${article.get().getArticleName()}" id="name" placeholder="Artikel Name.." required>
             <span th:if="${#fields.hasErrors('articleName')}" th:errors="*{articleName}"></span>
         </div>
         <div class="form-group">
             <label for="package">Verpackungseinheit</label>
-            <input class="form-control" type="text" th:field="*{packageUnit}" id="package" required placeholder="Verpackung">
+            <input class="form-control" type="text" th:field="*{packageUnit}" id="package" th:value="${article.get().getPackageUnit()}" placeholder="Verpackung" required>
             <span th:if="${#fields.hasErrors('packageUnit')}" th:errors="*{packageUnit}"></span>
         </div>
         <div class="form-group">
             <label for="price">Preis</label>
-            <input class="form-control" type="number" step="0.01" th:field="*{price}" required id="price" placeholder="Preis">
-            <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
+            <input class="form-control" type="number" step="0.01" th:field="*{price}" th:value="${article.get().getPrice()}" id="price" placeholder="Preis" required>
+            <span th:if="${#fields.hasErrors('packageUnit')}" th:errors="*{price}"></span>
         </div>
         <div class="form-group">
             <label for="supplier">Lieferant</label>
             <select class="form-control" th:field="${article.supplier.supplierId}" id="supplier">
-                <option th:each="s : ${supplier}" th:text="${s.supplierName}" th:value="${s.supplierId}"></option>
+                <option
+                        th:each="s : ${supplier}"
+                        th:text="${s.supplierName}"
+                        th:value="${s.supplierId}"
+                        th:selected="(${s.supplierId == article.get().getArticleId()})"></option>
             </select>
         </div>
 
-        <input type="submit" class="btn btn-primary" name="submit" value="Hinzufügen">
+        <input type="submit" class="btn btn-primary" name="submit" value="Bearbeiten">
 
     </form>
 </div>

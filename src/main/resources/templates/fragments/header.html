@@ -8,12 +8,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </head>
 
-<style th:inline="text">
-    body{
-        background-image: url("../img/backimg.jpg"); !important;
-    }
-</style>
-
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" th:fragment="header">
     <a class="navbar-brand" href="#">Navbar</a>
@@ -26,8 +20,8 @@
             <li class="nav-item active">
                 <a class="nav-link" th:href="@{/index}">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/add-article}">Add Article</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -37,11 +31,11 @@
                     <a class="dropdown-item" href="#">Action</a>
                     <a class="dropdown-item" href="#">Another action</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" >Something else here</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
+                <a class="nav-link active" th:href="@{/add-supplier}">Add Supplier</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" th:action="@{/s}" th:object="${article}" method="get">

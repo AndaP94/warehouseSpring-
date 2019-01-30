@@ -1,16 +1,14 @@
 package com.pichlera.spring.warehousespring.controller;
 
-
+import com.pichlera.spring.warehousespring.model.Supplier;
 import com.pichlera.spring.warehousespring.repository.ISupplierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
+
 
 @Controller
-public class SupplierController {
+public class SupplierController implements ISupplierController{
 
     ISupplierRepository iSupplierRepository;
 
@@ -20,11 +18,19 @@ public class SupplierController {
         this.iSupplierRepository = iSupplierRepository;
     }
 
-//    @RequestMapping("add-article")
-//    public String addSupplier(Model model){
-//        model.addAttribute("supplier", iSupplierRepository.findAll());
-//        return "add-article";
-//    }
 
+    @Override
+    public String addSupplier(Model model) {
+        return null;
+    }
 
+    @Override
+    public String deleteSupplier(long id, Model model) {
+        return null;
+    }
+
+    @Override
+    public String submitSupplier(Model model, Supplier supplier) {
+        return null;
+    }
 }

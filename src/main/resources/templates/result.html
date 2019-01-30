@@ -9,17 +9,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </head>
-<body>
+<body th:style="'background-color: #c4d0dc;'">
 
 <div th:replace="fragments/header :: header"></div>
 
 <div class="container">
     <h1>Deine Ware</h1>
-    <p th:text="'Artikelname: ' + ${article.articleName}" />
-    <p th:text="'Verpackungseinheit: ' + ${article.packageUnit}" />
-    <p th:text="'Preis: ' + ${article.price} + ' Euro'"/>
-    <p th:text="'Lieferant: ' + ${supplier.get().getSupplierName()}"/>
-    <a href="/index">Home</a>
+
+    <table class="table table-hover table-dark">
+        <thead>
+        <tr>
+            <th scope="col">Artikel</th>
+            <th scope="col">Verpackungseinheit</th>
+            <th scope="col">Preis</th>
+            <th scope="col">Lieferant</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr scope="row">
+            <td  th:text="${article.articleName}"></td>
+            <td th:text="${article.packageUnit}"></td>
+            <td th:text="${article.price}"></td>
+            <td th:text="${supplier.get().getSupplierName()}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/index" class="button success">Home</a>
 </div>
 
 <div th:replace="fragments/footer :: footer">&copy; 2016 The Static Templates</div>

@@ -9,12 +9,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </head>
-<body>
+<body  th:style="'background-color: #c4d0dc;'">
 
 <div th:replace="fragments/header :: header"></div>
 <div class="container">
     <h1>Warenhaus </h1>
-    <div th:switch="${article}">
+    <div th:switch="${articles}">
         <h2 th:case="null">Keine Artikel vorhanden</h2>
         <div th:case="*">
             <h2>Artikel</h2>
@@ -28,15 +28,17 @@
                     <th scope="col">Preis</th>
                     <th scope="col">Lieferant</th>
                     <th scope="col">Delete</th>
+                    <th scope="col">Edit</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr scope="row" th:each="a : ${article}">
+                <tr scope="row" th:each="a : ${articles}">
                     <td  th:text="${a.articleName}"></td>
                     <td th:text="${a.packageUnit}"></td>
                     <td th:text="${a.price}"></td>
                     <td th:text="${a.supplier.supplierName}"></td>
                     <td><a th:href="@{/delete/{id}(id=${a.articleId})}">Delete</a> </td>
+                    <td><a th:href="@{/update-article/{id} (id=${a.articleId})}">Edit</a> </tr>
                 </tr>
                 </tbody>
             </table>

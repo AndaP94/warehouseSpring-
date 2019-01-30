@@ -1,7 +1,9 @@
 package com.pichlera.spring.warehousespring.model;
 
+import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -10,6 +12,8 @@ public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long articleId;
+
+    @NotNull(message = "Bitte einen Wert")
     private String articleName;
     private String packageUnit;
     private double price;
